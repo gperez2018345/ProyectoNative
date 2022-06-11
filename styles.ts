@@ -1,6 +1,11 @@
 import {StyleSheet} from 'react-native';
-import theme from '../../theme';
+import theme from './src/theme';
+import React from 'react';
 const styles = StyleSheet.create({
+  content: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   link: {
     borderWidth: 4,
     width: 335,
@@ -13,6 +18,20 @@ const styles = StyleSheet.create({
     fontSize: theme.fonts.LARGE,
     borderRadius: 8,
     margin: 5,
+  },
+  linkLo: {
+    borderWidth: 4,
+    width: 335,
+    height: 48,
+    left: 20,
+    top: 330,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    backgroundColor: theme.colors.BLACK,
+    fontSize: theme.fonts.LARGE,
+    borderRadius: 8,
+    margin: 5,
+    color: theme.colors.WHITE,
   },
   container: {
     justifyContent: 'space-around',
@@ -39,7 +58,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Patrick Hand',
     fontStyle: 'normal',
     fontSize: theme.fonts.XLARGE,
-    colors: theme.colors.BLACK,
+    color: theme.colors.BLACK,
     lineHeight: 32,
   },
   textBox: {
@@ -53,6 +72,18 @@ const styles = StyleSheet.create({
     fontSize: theme.fonts.DEFAULT,
     borderRadius: 8,
     margin: 5,
+  },
+  container2: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  logo: {
+    paddingTop: 100,
+    alignItems: 'center',
+  },
+  imgLogo: {
+    height: 200,
+    width: 200,
   },
 });
 
