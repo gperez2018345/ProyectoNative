@@ -10,7 +10,15 @@
 
 import React from 'react';
 import {
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  useColorScheme,
+  View,
 } from 'react-native';
+import styles from './styles';
 import Login from './src/views/login/login';
 import Signup from './src/views/signup/signup';
 import {NavigationContainer} from '@react-navigation/native';

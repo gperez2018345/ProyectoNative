@@ -7,9 +7,10 @@ import {
   Image,
 } from 'react-native';
 import React from 'react';
-import styles from './login.styles';
+import styles from '../../../styles';
 
-const Login = () => {
+
+const LogIn = () => {
   return (
     <SafeAreaView>
       <View>
@@ -20,7 +21,7 @@ const Login = () => {
         <View style={styles.container2}>
           <View style={styles.logo}>
             <Image
-              source={require('../images/user.png')}
+              source={require('../../resource/images/user.png')}
               style={styles.imgLogo}
             />
           </View>
@@ -42,4 +43,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LogIn;

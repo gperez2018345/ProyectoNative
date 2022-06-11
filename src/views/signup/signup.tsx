@@ -6,11 +6,11 @@ import {
   SafeAreaView,
 } from 'react-native';
 import React from 'react';
-import styles from '../../styles';
+import styles from '../../../styles';
 import {useNavigation} from '@react-navigation/native';
 
 
-const Signup = ({}) => {
+const SignUp = ({}) => {
   const navigation = useNavigation();
   return (
     <SafeAreaView>
@@ -38,4 +38,4 @@ const Signup = ({}) => {
   );
 };
 
-export default Signup;
+export default SignUp;
