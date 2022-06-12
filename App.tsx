@@ -21,6 +21,7 @@ import {
 import styles from './styles';
 import Login from './src/views/login/login';
 import Signup from './src/views/signup/signup';
+import Login2 from './src/views/login2/login2';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -54,6 +55,11 @@ function App() {
           options={{headerShown: false}}
           name="Login"
           component={Login}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Login2"
+          component={Login2}
         />
       </Stack.Navigator>
     </NavigationContainer>

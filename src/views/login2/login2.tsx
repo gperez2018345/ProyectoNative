@@ -8,17 +8,13 @@ import {
 } from 'react-native';
 import React from 'react';
 import styles from '../../../styles';
-import {useNavigation} from '@react-navigation/native';
 
-const LogIn = () => {
-  const navigation = useNavigation();
+const LogIn2 = () => {
   return (
     <SafeAreaView>
       <View>
-        <Text style={styles.topText}>Identity</Text>
-        <Text style={styles.subText}>
-          Enter a good profile photo and type your name
-        </Text>
+        <Text style={styles.topText}>Login</Text>
+        <Text style={styles.subText}>Enter your credentials to continue</Text>
         <View style={styles.container2}>
           <View style={styles.logo}>
             <Image
@@ -28,20 +24,24 @@ const LogIn = () => {
           </View>
         </View>
         <View style={styles.container}>
-          <TextInput style={styles.textBox} placeholder="Name" />
-          <TextInput style={styles.textBox} placeholder="Last Name" />
+          <TextInput style={styles.textBox} placeholder="User or Email" />
+          <TextInput
+            placeholder="Password"
+            secureTextEntry={true}
+            style={styles.textBox}
+          />
         </View>
       </View>
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Login2');
+            // iniciar sesion para continuar
           }}>
-          <Text style={styles.linkLo}>Create account</Text>
+          <Text style={styles.linkLo}>log in</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 };
 
-export default LogIn;
+export default LogIn2;
