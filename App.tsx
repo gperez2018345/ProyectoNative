@@ -19,7 +19,7 @@ import {
   View,
 } from 'react-native';
 import styles from './styles';
-import Login from './src/views/login/login';
+import Login from './src/views/login/index';
 import Signup from './src/views/signup/signup';
 import Login2 from './src/views/login2/login2';
 import {NavigationContainer} from '@react-navigation/native';
@@ -42,28 +42,16 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
-function App() {
+const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Signup">
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Signup"
-          component={Signup}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Login"
-          component={Login}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Login2"
-          component={Login2}
-        />
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="SignUp" component={Signup} />
+        <Stack.Screen name="Login2" component={Login2} />
+        <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
 
 export default App;

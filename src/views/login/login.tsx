@@ -1,47 +1,78 @@
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  SafeAreaView,
-  TextInput,
-  Image,
-} from 'react-native';
-import React from 'react';
-import styles from '../../../styles';
-import {useNavigation} from '@react-navigation/native';
+import React, {useEffect, useState} from 'react';
+import {Text, View, Image, Alert} from 'react-native';
 
-const LogIn = () => {
-  const navigation = useNavigation();
+import ButtonForm from '../../components/c.Buttons/i.Button';
+import InputForm from '../../components/c.Input/i.Input';
+import stylesLogin from './login.styles';
+
+const Login = ({navigation}: any) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const login = () => {
+    return new Promise((resolve, reject) => {
+      resolve({
+        id: 1,
+        email: 'drivesave@gmail.com',
+        name: 'drivesave',
+        pass: '123456',
+        token: 'token',
+      });
+    }).then((value: any) => {
+      if (
+        (email === '' || email === null || email === undefined) &&
+        (password === '' || password === null || password === undefined)
+      ) {
+        Alert.alert('Llene los datos');
+      } else if (email === value.email && password === value.pass) {
+        Alert.alert('Bienvenido', ` ${value.name}`);
+        navigation.navigate('Login2');
+      } else if (email != value.email || password != value.pass) {
+        Alert.alert('Contraseña o email incorrectos');
+      } else {
+        Alert.alert('Error');
+      }
+    });
+  };
+
+  useEffect(() => {}, []);
+
   return (
-    <SafeAreaView>
+    <View>
+      <View style={stylesLogin.centerImg}>
+        <Image
+          source={require('../../res/img/user.png')}
+          style={stylesLogin.img}
+        />
+      </View>
+
       <View>
-        <Text style={styles.topText}>Identity</Text>
-        <Text style={styles.subText}>
-          Enter a good profile photo and type your name
-        </Text>
-        <View style={styles.container2}>
-          <View style={styles.logo}>
-            <Image
-              source={require('../../resource/images/user.png')}
-              style={styles.imgLogo}
+        <View>
+          <InputForm
+            text={'Email'}
+            type={'email-address'}
+            changed={setEmail}
+            secure={false}
+          />
+          <InputForm
+            text={'Password'}
+            type={'default'}
+            changed={setPassword}
+            secure={true}
+          />
+
+          <View style={{alignItems: 'center'}}>
+            <ButtonForm
+              text={'Login'}
+              pressed={() => {
+                login();
+              }}
             />
           </View>
         </View>
-        <View style={styles.container}>
-          <TextInput style={styles.textBox} placeholder="Name" />
-          <TextInput style={styles.textBox} placeholder="Last Name" />
-        </View>
       </View>
-      <View>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('Login2');
-          }}>
-          <Text style={styles.linkLo}>Create account</Text>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
-export default LogIn;
+export default Login;
