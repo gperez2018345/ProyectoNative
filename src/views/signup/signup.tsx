@@ -9,7 +9,6 @@ import React from 'react';
 import styles from '../../../styles';
 import {useNavigation} from '@react-navigation/native';
 
-
 const SignUp = ({}) => {
   const navigation = useNavigation();
   return (
