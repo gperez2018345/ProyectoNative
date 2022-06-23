@@ -1,57 +1,59 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
+  ActivityIndicator,
+  Alert,
   SafeAreaView,
   ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
   View,
 } from 'react-native';
-import styles from './styles';
+import style from './src/styles/style';
+
 import Login from './src/views/login/index';
 import Signup from './src/views/signup/signup';
 import Login2 from './src/views/login2/login2';
-import {NavigationContainer} from '@react-navigation/native';
+import {AuthContext, UserProvider} from './src/state/contexts/context';
+import {NavigationContainer, StackActions} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
-//const RegistroStack = createNativeStackNavigator();
-
-/*const App = () => {
-   const isDarkMode = useColorScheme() === 'dark';
- 
-   return (
-     <NavigationContainer>
-       <RegistroStack.Navigator initialRouteName="Signup">
-         <RegistroStack.Screen name="Signup" component={Signup} />
-         <RegistroStack.Screen name="Login" component={Login} />
-       </RegistroStack.Navigator>
-     </NavigationContainer>
-   );
- };*/
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {loginReducer, initialLoginState} from './src/state/reducers/auth';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+  const [isToken, setIsToken] = React.useState('');
+  const [loginState, dispatch] = React.useReducer(
+    loginReducer,
+    initialLoginState,
+  );
+
+  useEffect(() => {
+    setTimeout(async () => {
+      let userToken: any;
+      userToken = null;
+      try {
+        userToken = await AsyncStorage.getItem('token');
+      } catch (err) {
+        console.log(err);
+      }
+      dispatch({type: 'RETRIVE_TOKEN', token: userToken});
+    }, 1000);
+  }, []);
+
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="SignUp" component={Signup} />
-        <Stack.Screen name="Login2" component={Login2} />
+        <Stack.Screen name="Welcome" component={Signup} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Login2} />
+        <Stack.Screen name="login2" component={Login2} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
-export default App;
+export default () => (
+  <UserProvider>
+    <App />
+  </UserProvider>
+);
+export {App};
