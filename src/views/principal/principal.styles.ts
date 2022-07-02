@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import theme from './src/theme';
+import theme from '../../theme';
 import React from 'react';
 const styles = StyleSheet.create({
   content: {
@@ -32,10 +32,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     margin: 5,
     color: theme.colors.WHITE,
-  },
-  container: {
-    justifyContent: 'space-around',
-    flexDirection: 'column',
+
   },
   topText: {
     position: 'absolute',
@@ -61,29 +58,9 @@ const styles = StyleSheet.create({
     color: theme.colors.BLACK,
     lineHeight: 32,
   },
-  textBox: {
-    alignItems: 'center',
-    borderWidth: 1.5,
-    width: 335,
-    height: 48,
-    left: 20,
-    top: 300,
-    backgroundColor: theme.colors.WHITE,
-    fontSize: theme.fonts.DEFAULT,
-    borderRadius: 8,
-    margin: 5,
-  },
   container2: {
     flex: 1,
     alignItems: 'center',
-  },
-  logo: {
-    paddingTop: 100,
-    alignItems: 'center',
-  },
-  imgLogo: {
-    height: 200,
-    width: 200,
   },
 });
 
