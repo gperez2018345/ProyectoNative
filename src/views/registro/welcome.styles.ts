@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import theme from './src/theme';
+import theme from '../../theme';
 import React from 'react';
 const styles = StyleSheet.create({
   content: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     width: 335,
     height: 48,
     left: 20,
-    top: 330,
+    top: 200,
     textAlign: 'center',
     textAlignVertical: 'center',
     backgroundColor: theme.colors.WHITE,
@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
     fontSize: theme.fonts.XLARGE,
     color: theme.colors.BLACK,
     lineHeight: 32,
+    alignItems: 'center',
   },
   textBox: {
     alignItems: 'center',
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     width: 335,
     height: 48,
     left: 20,
-    top: 300,
+    top: 250,
     backgroundColor: theme.colors.WHITE,
     fontSize: theme.fonts.DEFAULT,
     borderRadius: 8,
