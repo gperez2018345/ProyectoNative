@@ -1,18 +1,17 @@
 import React, {useRef, useState} from 'react';
 import {
   View,
+  Alert,
   Text,
   StyleSheet,
   StatusBar,
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import {Separator} from '../components';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import {Colors, Fonts} from '../contants';
-import {Display} from '../utils';
+import {useNavigation} from '@react-navigation/native';
 
 const VerificationScreen = ({}) => {
+  const navigation = useNavigation();
   const firstInput = useRef();
   const secondInput = useRef();
   const thirdInput = useRef();
@@ -83,7 +82,11 @@ const VerificationScreen = ({}) => {
       </View>
       <TouchableOpacity
         style={styles.signinButton}
-        onPress={() => console.log(otp)}>
+        onPress={() => {
+          navigation.navigate('Continue');
+          console.log(otp);
+          Alert.alert('', `Verificado`);
+        }}>
         <Text style={styles.signinButtonText}>Verify</Text>
       </TouchableOpacity>
     </View>
