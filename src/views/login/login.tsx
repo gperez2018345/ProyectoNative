@@ -22,7 +22,7 @@ const Login = ({navigation}: any) => {
     signIn(username, password);
     setTimeout(() => {
       if (loginState.singedIn === true) {
-        navigation.navigate('Register');
+        navigation.navigate('ride');
       }
     }, 1000);
   };
