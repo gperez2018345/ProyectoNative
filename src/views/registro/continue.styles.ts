@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: 'center',
     backgroundColor: theme.colors.BLACK,
-    fontSize: theme.fonts.LARGE,
+    fontSize: theme.fonts.SMALL,
     borderRadius: 8,
     margin: 5,
     color: theme.colors.WHITE,
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   },
   topText: {
     position: 'absolute',
+    top: 50,
     width: 230,
     height: 24,
     left: 20,

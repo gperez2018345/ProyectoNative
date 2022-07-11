@@ -14,25 +14,41 @@ const Continue = ({}) => {
   return (
     <SafeAreaView>
       <View>
-        <TouchableOpacity
-          onPress={() => {
-            // registrarse e ir a iniciar sesion
-            navigation.navigate('Login');
-          }}>
-          <Text style={styles.link}>Login</Text>
-        </TouchableOpacity>
-        <Text style={styles.topText}>Principal</Text>
+        <Text style={styles.topText}>Continuar con</Text>
         <Text style={styles.subText}>
-          Selecciona una opción para poder continuar.
+          Como deseas iniciar la próxima vez?
         </Text>
       </View>
       <View>
         <TouchableOpacity
           onPress={() => {
-            // registrarse e ir a iniciar sesion
-            navigation.navigate('signUp');
+            navigation.navigate('Login');
           }}>
-          <Text style={styles.link}>Crear cuenta </Text>
+          <Text style={styles.linkLo}>Continue with Facebook</Text>
+        </TouchableOpacity>
+      </View>
+      <View>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Login');
+          }}>
+          <Text style={styles.linkLo}>Continue with Google</Text>
+        </TouchableOpacity>
+      </View>
+      <View>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Login');
+          }}>
+          <Text style={styles.linkLo}>Continue with Apple</Text>
+        </TouchableOpacity>
+      </View>
+      <View>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Login');
+          }}>
+          <Text style={styles.linkLo}>Continue with Email</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
