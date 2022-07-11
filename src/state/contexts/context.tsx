@@ -40,7 +40,15 @@ const UserProvider = () => {
         }
         dispatch({type: 'LOGOUT'});
       },
-      signUp: () => {},
+      restoreToken: async () => {
+        let token = null;
+        try {
+          token = await AsyncStorage.getItem('token');
+        } catch (err) {
+          console.log(err, 'Error');
+        }
+        dispatch({type: 'RESTORE_TOKEN', payload: {token}});
+      },
     }),
     [],
   );

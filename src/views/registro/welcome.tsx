@@ -16,36 +16,38 @@ const SignUp = ({}) => {
   const [selected, setSelected] = React.useState('');
 
   const data = [
-    {key: '1', value: 'Guatemala'},
-    {key: '2', value: 'Salvador'},
-    {key: '3', value: 'Costa Rica'},
-    {key: '4', value: 'Honduras'},
+    {key: '0', value: 'Guatemala'},
+    {key: '1', value: 'Salvador'},
+    {key: '2', value: 'Costa Rica'},
+    {key: '3', value: 'Honduras'},
   ];
   return (
-    <SafeAreaView>
+    <View>
       <View>
-        <Text style={styles.topText}>Welcome!</Text>
+        <Text style={styles.topText}>Bienvenido!</Text>
         <View style={styles.container}>
           <Text style={styles.subText}>Agrega tu numero de telefono</Text>
-          <TextInput style={styles.textBox} placeholder="Numero de Telefono" />
         </View>
       </View>
-      <View style={{paddingTop: 125}}>
+      <View style={{paddingTop: 160}}>
         <SelectList
           data={data}
           setSelected={setSelected}
-          dropdownStyles={{backgroundColor: 'gray'}}
-          dropdownItemStyles={{marginLeft: 10, marginTop: 0}}
+          dropdownStyles={{backgroundColor: 'white'}}
+          dropdownItemStyles={{margin: 1}}
         />
+        <View>
+          <TextInput style={styles.textBox} placeholder="Numero de Telefono" />
+          <Text
+            style={styles.link}
+            onPress={() => {
+              navigation.navigate('verify');
+            }}>
+            Continue
+          </Text>
+        </View>
       </View>
-      <TouchableOpacity
-        onPress={() => {
-          // registrarse e ir a iniciar sesion
-          navigation.navigate('verify');
-        }}>
-        <Text style={styles.link}>Continue</Text>
-      </TouchableOpacity>
-    </SafeAreaView>
+    </View>
   );
 };
 
