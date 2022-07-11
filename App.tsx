@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -6,31 +6,44 @@ import {
   ScrollView,
   View,
 } from 'react-native';
+
 import Login from './src/views/login/index';
 import Principal from './src/views/principal/index';
 import Login2 from './src/views/login2/login2';
 import signup from './src/views/registro/w-index';
 import verify from './src/views/registro/v-index';
-import Continue from './src/views/registro/c-index';
-//import {AuthContext, UserProvider} from './src/state/contexts/context';
-import AuthContext, {UserProvider} from './src/state/contexts/context';
+import Ride from './src/views/ride/index';
+import Route from './src/views/ride/route-index';
+import {AuthContext, UserProvider} from './src/state/contexts/context';
 import {NavigationContainer, StackActions} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {loginReducer, initialLoginState} from './src/state/reducers/auth';
+import {enableLatestRenderer} from 'react-native-maps';
+import MapViewDirections from 'react-native-maps-directions';
+
+enableLatestRenderer();
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   const [isToken, setIsToken] = React.useState('');
-  const [{isLoading, userToken}, {restoreToken}] = useContext(AuthContext);
   const [loginState, dispatch] = React.useReducer(
     loginReducer,
     initialLoginState,
   );
 
   useEffect(() => {
-    restoreToken();
+    setTimeout(async () => {
+      let userToken: any;
+      userToken = null;
+      try {
+        userToken = await AsyncStorage.getItem('token');
+      } catch (err) {
+        console.log(err);
+      }
+      dispatch({type: 'RETRIVE_TOKEN', token: userToken});
+    }, 1000);
   }, []);
 
   return (
@@ -42,7 +55,8 @@ const App = () => {
         <Stack.Screen name="login2" component={Login2} />
         <Stack.Screen name="signUp" component={signup} />
         <Stack.Screen name="verify" component={verify} />
-        <Stack.Screen name="Continue" component={Continue} />
+        <Stack.Screen name="ride" component={Ride} />
+        <Stack.Screen name="route" component={Route} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -53,3 +67,4 @@ export default () => (
     <App />
   </UserProvider>
 );
+export {App};
