@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   subText: {
     textAlign: 'center',
-    top: 25,
+
     fontFamily: 'Patrick Hand',
     fontStyle: 'normal',
     fontSize: theme.fonts.DEFAULT,
@@ -84,7 +84,15 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     height: 300,
     width: 400,
-    marginTop: 125,
+    marginTop: 100,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  container1: {
+    ...StyleSheet.absoluteFillObject,
+    height: 300,
+    width: 400,
+    marginTop: 200,
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
