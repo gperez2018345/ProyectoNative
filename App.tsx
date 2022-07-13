@@ -15,6 +15,7 @@ import verify from './src/views/registro/v-index';
 import Ride from './src/views/ride/index';
 import Route from './src/views/ride/route-index';
 import Continue from './src/views/registro/c-index';
+import confi from './src/views/ride/c-index';
 import {AuthContext, UserProvider} from './src/state/contexts/context';
 import {NavigationContainer, StackActions} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -59,6 +60,7 @@ const App = () => {
         <Stack.Screen name="ride" component={Ride} />
         <Stack.Screen name="route" component={Route} />
         <Stack.Screen name="Continue" component={Continue} />
+        <Stack.Screen name="confi" component={confi} />
       </Stack.Navigator>
     </NavigationContainer>
   );
