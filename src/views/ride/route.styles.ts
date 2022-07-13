@@ -11,8 +11,7 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     width: 335,
     height: 48,
-    left: 40,
-    top: 1,
+    left: 38,
     textAlign: 'center',
     textAlignVertical: 'center',
     backgroundColor: theme.colors.WHITE,
@@ -57,7 +56,6 @@ const styles = StyleSheet.create({
   },
   subText: {
     textAlign: 'center',
-
     fontFamily: 'Patrick Hand',
     fontStyle: 'normal',
     fontSize: theme.fonts.DEFAULT,
@@ -79,6 +77,10 @@ const styles = StyleSheet.create({
   fondo: {
     flex: 1,
     backgroundColor: 'white',
+    top: 10,
+  },
+  buscador2:{
+    top: 20,
   },
   container: {
     ...StyleSheet.absoluteFillObject,

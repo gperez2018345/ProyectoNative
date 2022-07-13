@@ -17,7 +17,7 @@ const UserProvider = () => {
       signIn: async (userName: string, password: string) => {
         let userToken: any;
         userToken = null;
-        if (userName == 'Xavi' && password == '1234') {
+        if (userName == 'xavier@gmail.com' && password == '1234') {
           try {
             userToken = 'fss';
             await AsyncStorage.setItem('token', userToken);
