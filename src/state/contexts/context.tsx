@@ -17,7 +17,7 @@ const UserProvider = () => {
       signIn: async (userName: string, password: string) => {
         let userToken: any;
         userToken = null;
-        if (userName == 'xavier@gmail.com' && password == '1234') {
+        if (userName == 'reactNative@gmail.com' && password == '1234') {
           try {
             userToken = 'fss';
             await AsyncStorage.setItem('token', userToken);
@@ -26,7 +26,7 @@ const UserProvider = () => {
           } catch (err) {
             console.log(err);
           }
-        } else if (userName != 'Xavi' || password != '1234') {
+        } else if (userName != 'React' || password != '1234') {
           Alert.alert('Error en email o contraseña');
           loginState.singedIn = false;
         }

@@ -12,14 +12,10 @@ import {useNavigation} from '@react-navigation/native';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import SelectList from 'react-native-dropdown-select-list';
-import MapViewDirections from 'react-native-maps-directions';
 
 const Route1 = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = React.useState('');
-
-  const origin = {latitude: 37.3318456, longitude: -122.0296002};
-  const destination = {latitude: 37.771707, longitude: -122.4053769};
 
   const data = [
     {key: '1', value: 'ruta a 5k'},
@@ -52,11 +48,6 @@ const Route1 = () => {
             latitudeDelta: 0.015,
             longitudeDelta: 0.0121,
           }}>
-          <MapViewDirections
-            origin={origin}
-            destination={destination}
-            apikey={'AIzaSyAl0HmQXXjnCCC6-royC4T_2H2aNLEOMjg'}
-          />
         </MapView>
       </View>
       <Text style={styles.subText}>El precio de la ruta es de Q.100</Text>
